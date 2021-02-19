@@ -83,7 +83,7 @@ def system_changed(bot, cache_id, old_value)
 		system_name = "#{current_system["name"]} (#{current_system["id"]})"
 
 		if old_system.nil? || current_system["claim"]["contested"]
-			message = "NEWS FLASH! New claim for #{system_name} system by #{aff_code}."
+			message = "NEWS FLASH! New claim for #{system_name} system for #{aff_code}."
 			post_to_channel(bot, message)
 		end
 	rescue Exception => e
