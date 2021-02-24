@@ -105,21 +105,21 @@ end
 bot.command(:buying, min_args: 1, max_args: 1, description: "Find out which markets are buying an item", usage: '!buying [Item ID]', rate_limit_message: RATELIMIT_MESSAGE) do |event, item_id|
 	puts "!buying: " + item_id
 	cache_info!(bot) unless has_cached_info?
-	send_user_pm(event.user, market_buying_description(item_id))
+	send_user_pm(event.user, "Currently unavilable") # market_buying_description(item_id))
 	react_to_command(event)
 end
 
 bot.command(:selling, min_args: 1, max_args: 1, description: "Find out which markets are selling an item", usage: '!selling [Item ID]', rate_limit_message: RATELIMIT_MESSAGE) do |event, item_id|
 	puts "!selling: " + item_id
 	cache_info!(bot) unless has_cached_info?
-	send_user_pm(event.user, market_selling_description(item_id))
+	send_user_pm(event.user, "Currently unavilable") # market_selling_description(item_id))
 	react_to_command(event)
 end
 
 bot.command(:market, min_args: 1, max_args: 1, description: "Get the public market for a starbase if it has one", usage: '!market [Starbase ID]', rate_limit_message: RATELIMIT_MESSAGE) do |event, starbase_id|
 	puts "!market: " + starbase_id
 	cache_info!(bot) unless has_cached_info?
-	send_user_pm(event.user, market_starbase_description(starbase_id))
+	send_user_pm(event.user, "Currently unavilable") # market_starbase_description(starbase_id))
 	react_to_command(event)
 end
 

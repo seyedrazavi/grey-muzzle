@@ -175,9 +175,9 @@ def cache_info!(bot)
 	cache_info_set!(info["item_types"], "item_types")
 	set_cache_value!('info_fetched', dt)
 	
-	market_starbases, market_items = client.fetch_market
-	cache_info_set!(market_items, "market_items")
-	cache_info_set!(market_starbases, "market_starbases")
+	# market_starbases, market_items = client.fetch_market
+	# cache_info_set!(market_items, "market_items")
+	# cache_info_set!(market_starbases, "market_starbases")
 
 	puts "Cached info at #{dt}"
 
