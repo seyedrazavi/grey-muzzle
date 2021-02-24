@@ -167,21 +167,17 @@ def cache_info!(bot)
 	#pp info["items"]
 	cache_info_set!(info["items"], "items")
 	cache_info_set!(info["star_systems"], "star_systems").each do |cache_id, old_value|
-		system_changed(bot, cache_id, old_value)
+		# system_changed(bot, cache_id, old_value)
 	end
 	cache_info_set!(info["affiliations"], "affiliations").each do |cache_id, old_value|
-		affiliation_changed(bot, cache_id, old_value)
+		# affiliation_changed(bot, cache_id, old_value)
 	end
 	cache_info_set!(info["item_types"], "item_types")
 	set_cache_value!('info_fetched', dt)
 	
 	market_starbases, market_items = client.fetch_market
-	cache_info_set!(market_items, "market_items").each do |cache_id, old_value|
-		market_items_changed(bot, cache_id, old_value)
-	end
-	cache_info_set!(market_starbases, "market_starbases").each do |cache_id, old_value|
-		market_starbase_changed(bot, cache_id, old_value)
-	end
+	cache_info_set!(market_items, "market_items")
+	cache_info_set!(market_starbases, "market_starbases")
 
 	puts "Cached info at #{dt}"
 
