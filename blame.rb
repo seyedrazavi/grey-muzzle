@@ -8,7 +8,7 @@ require_relative 'cache'
 
 def set_bridge_blamed!
 	dt = DateTime.now
-	cache_info_value!('bridge_blamed', dt)
+	set_cache_value!('bridge_blamed', dt)
 end
 
 def bridge_blamed 
