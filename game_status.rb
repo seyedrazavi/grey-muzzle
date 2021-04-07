@@ -8,12 +8,6 @@ require_relative 'game_info'
 
 # Game Status
 
-def get_cached_status
-	return nil unless get_cached_status_datetime
-	puts "Status Timestamp:" + get_cached_status_datetime.to_s
-	status = JSON.parse(REDIS.get('status'))
-end
-
 def get_cached_status_datetime
 	return nil unless get_cache_value('status_checked')
 	DateTime.parse(get_cache_value('status_checked'))
