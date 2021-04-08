@@ -123,28 +123,28 @@ bot.command(:market, min_args: 1, max_args: 1, description: "Get the public mark
 	react_to_command(event)
 end
 
-bot.command(:rules, description: "Searches the BSE rulebook [experimental]", usage: "!rules [search terms]", rate_limit_message: RATELIMIT_MESSAGE) do |event, *query_parts|
-	query = query_parts.join(' ')
-	puts "!rules #{query}"
-	results = Rulebook.search(query)
-	react_to_command(event)
-	if results.nil?
-		send_user_pm(event.user, "Search not working.")
-		post_to_channel(bot, "Search not working [null result].", CHANNEL_TEST_BOT)
-	elsif results.count < 1
-		send_user_pm(event.user, "Nothing found matching '#{query}' in the rulebook.")
-	else
-		max = results.count > MAX_SEARCH_RESULTS ? MAX_SEARCH_RESULTS : results.count
-		send_user_pm(event.user, "Found #{results.count} matching sections in the rulebook. Will send the best #{max} results to you.")
-		i = 0
-		while i < max do 
-			break unless results[i]
-			send_user_pm(event.user, "#{results[i]}\n")
-			sleep(1)
-			i += 1
-		end
-	end
-end
+# bot.command(:rules, description: "Searches the BSE rulebook [experimental]", usage: "!rules [search terms]", rate_limit_message: RATELIMIT_MESSAGE) do |event, *query_parts|
+# 	query = query_parts.join(' ')
+# 	puts "!rules #{query}"
+# 	results = Rulebook.search(query)
+# 	react_to_command(event)
+# 	if results.nil?
+# 		send_user_pm(event.user, "Search not working.")
+# 		post_to_channel(bot, "Search not working [null result].", CHANNEL_TEST_BOT)
+# 	elsif results.count < 1
+# 		send_user_pm(event.user, "Nothing found matching '#{query}' in the rulebook.")
+# 	else
+# 		max = results.count > MAX_SEARCH_RESULTS ? MAX_SEARCH_RESULTS : results.count
+# 		send_user_pm(event.user, "Found #{results.count} matching sections in the rulebook. Will send the best #{max} results to you.")
+# 		i = 0
+# 		while i < max do 
+# 			break unless results[i]
+# 			send_user_pm(event.user, "#{results[i]}\n")
+# 			sleep(1)
+# 			i += 1
+# 		end
+# 	end
+# end
 
 bot.message(with_text: '!help') do |event|
 	event << "Did you know you can PM me these commands?"
