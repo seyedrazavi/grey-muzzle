@@ -33,6 +33,8 @@ if testing?
 
 	puts "--- TESTING ---"
 
+	cache_info!(bot)
+
 	puts get_cached_status["message"]
 
 	pp system_claim(1)
